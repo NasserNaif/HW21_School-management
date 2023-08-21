@@ -67,4 +67,12 @@ public class TeacherController {
         teacherServices.deleteAddress(id);
         return ResponseEntity.status(201).body(new ApiResponse("address delete"));
     }
+
+    // assign teacher to course
+    @PutMapping("assign/{teacherID}/{courseID}")
+    public ResponseEntity assignTeacherToCourse(@PathVariable Integer teacherID, @PathVariable Integer courseID) {
+        teacherServices.assignTeacherToCourse(teacherID, courseID);
+        return ResponseEntity.status(201).body(new ApiResponse("teacher successfully"));
+    }
+
 }
